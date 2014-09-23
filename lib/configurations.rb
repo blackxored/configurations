@@ -9,8 +9,4 @@ require_relative 'configurations/configurable'
 #
 module Configurations
   extend Configurable
-
-  # Version number of Configurations
-  #
-  VERSION = '1.4.0'
 end
