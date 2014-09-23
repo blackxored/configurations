@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*-
+
+require 'active_support/core_ext/hash/keys'
+require 'active_support/core_ext/hash/indifferent_access'
+require 'active_support/all'
+
 module Configurations
   # Configuration is a blank object in order to allow configuration of various properties including keywords
   #
@@ -149,7 +154,7 @@ module Configurations
     # @return [Hash] A configuration hash instantiating subhashes if the key is configurable
     #
     def _configuration_hash
-      ::Hash.new do |h, k|
+      ::ActiveSupport::HashWithIndifferentAccess.new do |h, k|
         h[k] = Configuration.new(nil, @configurable) if _configurable?(k)
       end
     end
